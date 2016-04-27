@@ -1,0 +1,38 @@
+<?php
+/**
+ * Faonni
+ *  
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade module to newer
+ * versions in the future.
+ * 
+ * @package     Faonni_MultiLayer
+ * @copyright   Copyright (c) 2015 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<ol>
+<?php foreach ($this->getItems() as $_item): ?>
+	<?php $selected = $this->isSelected($_item) ?>
+	<?php $disabled = $this->isDisabled($_item) ?>
+	<?php $url = ($selected) ? $_item->getRemoveUrl() : $_item->getUrl() ?>
+    <li>
+		<input id="layer-option-<?php echo $_item->getValue() ?>" type="checkbox" class="checkbox layer-option-checkbox" 
+			<?php if ($selected): ?> checked="checked" <?php endif ?>
+			<?php if ($disabled): ?> disabled="disabled" <?php endif ?>
+			<?php if (!$disabled): ?> value="<?php echo $url ?>"<?php endif ?>/>
+		<label for="layer-option-<?php echo $_item->getValue() ?>"<?php if ($disabled): ?> class="option-disabled" <?php endif ?>>
+			<?php echo $_item->getLabel() ?><?php if ($this->shouldDisplayProductCount()): ?> (<?php echo $_item->getCount() ?>)<?php endif ?>
+		</label>
+    </li>
+<?php endforeach ?>
+</ol>

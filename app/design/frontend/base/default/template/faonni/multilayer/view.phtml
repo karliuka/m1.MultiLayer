@@ -1,0 +1,56 @@
+<?php
+/**
+ * Faonni
+ *  
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade module to newer
+ * versions in the future.
+ * 
+ * @package     Faonni_MultiLayer
+ * @copyright   Copyright (c) 2015 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php if($this->canShowBlock()): ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php //echo $this->getStateHtml() ?>
+        <!--<?php if ($this->getLayer()->getState()->getFilters()): ?>
+            <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+        <?php endif; ?>-->
+        <?php if($this->canShowOptions() || true): ?>
+            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+            <dl id="narrow-by-list">
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if($_filter->getItemsCount() || true): ?>
+                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+            <script type="text/javascript">
+				//<![CDATA[
+				decorateDataList('narrow-by-list');
+				$$('#narrow-by-list input[type="checkbox"]')
+					.invoke('observe', 'click', function(field) {
+					setLocation(this.value);
+				});				
+				//]]>
+			</script>			
+        <?php endif ?>
+    </div>
+</div>
+<?php endif; ?>

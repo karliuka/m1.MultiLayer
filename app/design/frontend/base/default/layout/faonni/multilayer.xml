@@ -38,4 +38,12 @@
 			<action method="setTemplate" ifconfig="catalog/layered_navigation/multilayer_active"><template>faonni/multilayer/view.phtml</template></action>
         </reference>
     </catalog_category_layered>
+	<!--
+	Quick Search Form layout
+	-->	
+    <catalogsearch_result_index>
+        <reference name="catalogsearch.leftnav">
+			<action method="setTemplate" ifconfig="catalog/layered_navigation/multilayer_active"><template>faonni/multilayer/view.phtml</template></action>
+        </reference>
+    </catalogsearch_result_index>		
 </layout>

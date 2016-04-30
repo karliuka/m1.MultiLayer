@@ -36,7 +36,12 @@
 				<rewrite>
 					<layer_view>Faonni_MultiLayer_Block_View</layer_view>
 				</rewrite>
-			</catalog>			
+			</catalog>
+			<catalogsearch>
+				<rewrite>
+					<layer>Faonni_MultiLayer_Block_CatalogSearch_Layer</layer>
+				</rewrite>
+			</catalogsearch>				
 		</blocks>	
 		<helpers>
 			<faonni_multilayer>
@@ -61,6 +66,15 @@
                 </faonni_multilayer>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Faonni_MultiLayer>
+                    <files>
+                        <default>Faonni_MultiLayer.csv</default>
+                    </files>
+                </Faonni_MultiLayer>
+            </modules>
+        </translate>		
     </frontend>
     <default>
         <catalog>
